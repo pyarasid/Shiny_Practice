@@ -1,6 +1,5 @@
 library(shiny)
 
-
 #Define user input function
 ui <- fluidPage(
   #sidebar layout with input and output definitions
