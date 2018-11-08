@@ -51,7 +51,6 @@ ls(Trade_SSA)
 ```
 
 #Renaming column
-
 ```{r}
 colnames(Trade_SSA)[colnames(Trade_SSA)=='Partner Name'] <- 'Partner'
 colnames(Trade_SSA)[colnames(Trade_SSA)=='Reporter Name'] <- 'Country'
@@ -69,6 +68,7 @@ Trade_SSA <- melt(Trade_SSA, id.vars = c("Reporter Name", "Partner Name", "Trade
 ```{r, fig.width=12, fig.height=6}
 p1 <- ggplot(data=Trade_SSA, mapping = aes(x=Years, y= Trade_Value))
 p1 +geom_line(aes(group=Country,  color= Country), size= 1) + facet_grid(~ Trade_Flow) + theme(axis.text.x=element_text(angle=-55, hjust=0), legend.position = "top")
+ggsave("trade.pdf")
 ```
 
 
