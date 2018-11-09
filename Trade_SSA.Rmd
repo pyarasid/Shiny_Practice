@@ -48,20 +48,21 @@ View(Trade_SSA)
 str(Trade_SSA)
 Trade_SSA <- Trade_SSA[-c(4)]
 ls(Trade_SSA)
-```
-
-#Renaming column
-
-```{r}
-colnames(Trade_SSA)[colnames(Trade_SSA)=='Partner Name'] <- 'Partner'
-colnames(Trade_SSA)[colnames(Trade_SSA)=='Reporter Name'] <- 'Country'
-colnames(Trade_SSA)[colnames(Trade_SSA)=='Trade Flow'] <- 'Trade_Flow'
+#as_tibble(Trade_SSA) 
 ```
 
 
 # Coverting the data from Wide format to long format using reshape2 library
 ```{r}
 Trade_SSA <- melt(Trade_SSA, id.vars = c("Reporter Name", "Partner Name", "Trade Flow", "Indicator"), measure.vars = c("1992", "1993","1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016"), variable.name = "Years", value.name = "Trade_Value")
+```
+
+
+#Renaming column
+```{r}
+colnames(Trade_SSA)[colnames(Trade_SSA)=='Partner Name'] <- 'Partner'
+colnames(Trade_SSA)[colnames(Trade_SSA)=='Reporter Name'] <- 'Country'
+colnames(Trade_SSA)[colnames(Trade_SSA)=='Trade Flow'] <- 'Trade_Flow'
 ```
 
 
